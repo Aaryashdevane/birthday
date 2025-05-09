@@ -22,6 +22,18 @@ const alphabetPraises = {
 let sparklingHeartsInterval;
 let praiseSequenceTimeout;
 
+function startAudioAndNextScreen() {
+  const audio = document.getElementById('bgMusic');
+  
+  // Start the audio when the user clicks the button
+  audio.play().catch(error => {
+    console.warn("Background music autoplay was blocked.", error);
+  });
+  
+  // Move to the next screen after starting the audio
+  nextScreen();
+}
+
 function nextScreen() {
   const currentScreenElement = document.getElementById(`screen${currentScreen}`);
   if (currentScreenElement) {
@@ -244,17 +256,12 @@ function startAlphabetPraiseSequence() {
         }
     }
     showNextPraise();
-}
 
-document.addEventListener('DOMContentLoaded', () => {
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
   const initialScreen = document.getElementById('screen1');
   if (initialScreen && initialScreen.classList.contains('active')) {
-    startHopping21Animation(initialScreen);
+  startHopping21Animation(initialScreen);
   }
-  const bgMusic = document.getElementById('bgMusic');
-  if (bgMusic) {
-    bgMusic.play().catch(error => {
-        console.warn("Background music autoplay was blocked.", error);
-    });
-  }
-});
+  });

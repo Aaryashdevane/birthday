@@ -8,13 +8,14 @@
 </head>
 <body>
 
-  <audio id="bgMusic" src="./assets/audio/happy-birthday-334876.mp3" autoplay loop></audio>
+  <!-- Audio element without autoplay -->
+  <audio id="bgMusic" src="./assets/audio/happy-birthday-334876.mp3" loop></audio>
 
   <div id="screen1" class="screen active">
     <div class="screen-content">
       <div class="question">
         <h2>Guess what's special today? 🎉</h2>
-        <button onclick="nextScreen()">Tell Me More 😊</button>
+        <button onclick="startAudioAndNextScreen()">Tell Me More 😊</button>
       </div>
     </div>
   </div>
@@ -42,11 +43,12 @@
           <p>Wishing you a day as incredibly wonderful as you are. I love you more than words can say!</p>
         </div>
       </div>
-      <button a href="#next-screen" class="screen-button"onclick="nextScreen()">Next 💌</button>
+      <button class="screen-button" onclick="nextScreen()">Next 💌</button>
     </div>
   </div>
 
-  <div id="screen4" class="screen message-typing-screen"> <div id="sparkling-hearts-container"></div>
+  <div id="screen4" class="screen message-typing-screen">
+    <div id="sparkling-hearts-container"></div>
     <div class="screen-content">
       <div class="typed-text" id="messageText"></div>
       <button onclick="nextScreen()">Continue 💌</button>
@@ -58,7 +60,7 @@
       <h2 id="praiseScreenTitle" class="praise-screen-title">A Special Acrostic For You...</h2>
       <div id="praise-letter-display" class="praise-letter"></div>
       <div id="praise-meaning-display" class="praise-meaning"></div>
-      </div>
+    </div>
   </div>
   
   <div id="screen6" class="screen video-screen">
@@ -77,8 +79,8 @@
       <p class="final-subtext">Every moment, every heartbeat, every breath—it's always you. 💖</p>
     </div>
   </div>
-  
 
+  <!-- Linking to the external JavaScript file -->
   <script src="script.js"></script>
 </body>
 </html>
