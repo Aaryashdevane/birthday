@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <audio id="bgMusic" src="./assets/audio/happy-birthday-334876.mp3" autoplay loop></audio>
+
+  <div id="screen1" class="screen active">
+    <div class="screen-content">
+      <div class="question">
+        <h2>Guess what's special today? 🎉</h2>
+        <button onclick="nextScreen()">Tell Me More 😊</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen2" class="screen">
+    <div class="screen-content">
+      <div class="question">
+        <h2>What does "21" mean to you today? 💭</h2>
+        <button onclick="nextScreen()">Hmm... Let’s Find Out! 💖</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen3" class="screen">
+    <div class="screen-content">
+      <h1 class="birthday-title">Happy Birthday<br>My Love of My Life ❤️</h1>
+      <div class="birthday-message-content">
+        <div class="photo-frame-large">
+          <img src="./assets/images/22.png" alt="Us together" />
+        </div>
+        <div class="love-message">
+          <p>To the one who paints my world with the brightest colors,</p>
+          <p>Every moment with you is a cherished dream, a beautiful adventure.</p>
+          <p>You are my sunshine, my comfort, my everything.</p>
+          <p>Wishing you a day as incredibly wonderful as you are. I love you more than words can say!</p>
+        </div>
+      </div>
+      <button onclick="nextScreen()">Next 💌</button>
+    </div>
+  </div>
+
+  <div id="screen4" class="screen message-typing-screen"> <div id="sparkling-hearts-container"></div>
+    <div class="screen-content">
+      <div class="typed-text" id="messageText"></div>
+      <button onclick="nextScreen()">Continue 💌</button>
+    </div>
+  </div>
+
+  <div id="screen5" class="screen alphabet-praise-screen">
+    <div class="screen-content">
+      <h2 id="praiseScreenTitle" class="praise-screen-title">A Special Acrostic For You...</h2>
+      <div id="praise-letter-display" class="praise-letter"></div>
+      <div id="praise-meaning-display" class="praise-meaning"></div>
+      </div>
+  </div>
+  
+  <div id="screen6" class="screen video-screen">
+    <video id="loveVideo" autoplay muted playsinline>
+      <source src="./assets/video/video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div id="screen7" class="screen final-screen">
+    <div class="screen-content final-message">
+      <div class="image-frame">
+        <img src="./assets/images/us.png" alt="Us Forever" />
+      </div>
+      <h2 class="final-title">Forever Yours 💞</h2>
+      <p class="final-subtext">Every moment, every heartbeat, every breath—it's always you. 💖</p>
+    </div>
+  </div>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
