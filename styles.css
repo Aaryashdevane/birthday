@@ -1,0 +1,228 @@
+/* --- General & Previous Screen Styles (Assumed to be present and correct) --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #fff0f5; overflow: hidden; }
+/* ... other existing styles ... */
+.screen { display: none; height: 100vh; width: 100vw; background: linear-gradient(to bottom right, #ffe0ec, #ffccf9); justify-content: center; align-items: center; flex-direction: column; text-align: center; padding: 2rem; position: relative; }
+.screen.active { display: flex; }
+.screen-content { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; }
+
+/* Background "21" animation styles */
+.bg-animated-text { position: absolute; font-size: 3rem; color: rgba(220, 51, 132, 0.2); animation: floatText 12s ease-in-out infinite; z-index: 1; user-select: none; pointer-events: none; }
+@keyframes floatText { /* ... existing keyframes ... */
+    0% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
+    25% { transform: translateY(-15px) translateX(10px) rotate(8deg); opacity: 0.5; }
+    50% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
+    75% { transform: translateY(15px) translateX(-10px) rotate(-8deg); opacity: 0.5; }
+    100% { transform: translateY(0px) translateX(0px) rotate(0deg); opacity: 0.3; }
+}
+
+
+/* Screen 3 styles */
+.birthday-title { font-size: 2rem; color: #d63384; margin-bottom: 1.5rem; animation: fadeIn 1s ease-in-out; }
+.birthday-message-content { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1rem; width: 90%; max-width: 850px; }
+.photo-frame-large img { width: 280px; height: 280px; object-fit: cover; border: 8px solid #ff69b4; border-radius: 25px; box-shadow: 0 5px 30px rgba(255, 182, 193, 0.75); animation: fadeIn 1.5s ease-in-out; }
+.love-message { color: #c83379; font-size: 1.15rem; line-height: 1.75; text-align: center; padding: 15px; }
+.love-message p { margin-bottom: 0.9em; opacity: 0; animation: fadeInMessage 1.2s ease-in-out forwards; }
+.love-message p:nth-child(1) { animation-delay: 0.5s; } .love-message p:nth-child(2) { animation-delay: 1.2s; }
+.love-message p:nth-child(3) { animation-delay: 1.9s; } .love-message p:nth-child(4) { animation-delay: 2.6s; }
+@keyframes fadeInMessage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.subtle-heart-effect { position: absolute; font-size: 1.5rem; color: rgba(220, 51, 132, 0.25); animation: floatUpFade 8s ease-in-out infinite; z-index: 0; user-select: none; pointer-events: none; }
+@keyframes floatUpFade {0% { transform: translateY(30px) scale(0.7); opacity: 0; } 25% { opacity: 0.7; } 75% { opacity: 0.3; } 100% { transform: translateY(-90px) scale(1.3); opacity: 0; }}
+@media (min-width: 768px) { /* Responsive for screen 3 */
+    .birthday-message-content { flex-direction: row; gap: 2.5rem; align-items: center; }
+    .photo-frame-large img { width: 320px; height: 320px; }
+    .love-message { text-align: left; flex-basis: 55%; padding-left: 20px; }
+}
+
+/* Screen 4 (Message Typing Screen) Styles */
+#screen4.message-typing-screen { /* Changed from #screen4 to allow more specific targeting */
+    background-image: url('./assets/images/22.png'); /* Ensure your image path is correct */
+    background-size: cover;
+    background-position: center;
+}
+#screen4.message-typing-screen::before { /* Overlay for text readability on Screen 4 */
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(255, 240, 245, 0.3); /* Lavender blush overlay */
+    z-index: 1;
+}
+#sparkling-hearts-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 2; }
+.sparkling-heart { position: absolute; will-change: transform, opacity; }
+@keyframes sparkleAnim { /* ... existing keyframes ... */
+    0% { transform: translateY(5vh) scale(0.3) rotate(0deg); opacity: 0; }
+    20% { opacity: 1; transform: translateY(0vh) scale(1) rotate(10deg); }
+    80% { opacity: 0.8; }
+    100% { transform: translateY(-80vh) scale(0.3) rotate(360deg); opacity: 0; }
+}
+#screen4 .typed-text { /* Styles for typed text on screen 4 */
+    font-size: 1.4rem; max-width: 700px; color: #a30052; background-color: rgba(255, 255, 255, 0.4);
+    padding: 20px; border-radius: 15px; box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    animation: fadeIn 1s; white-space: pre-wrap; line-height: 1.8; text-align: center; margin-bottom: 20px;
+}
+/* Removed #praise-display-box styles as it's deprecated from Screen 4 */
+
+
+/* --- NEW STYLES FOR SCREEN 5 (Alphabet Praise Screen) --- */
+.alphabet-praise-screen {
+    /* You can customize the background, or it will use the default .screen gradient */
+     background: linear-gradient(to bottom right, #f8dae4, #fce1f0); /* Softer pink gradient */
+}
+
+.praise-screen-title { /* Replaced #praiseScreenTitle for class consistency */
+    font-size: 2rem; /* Was 1.8rem */
+    color: #c83379; /* Deeper pink */
+    margin-bottom: 2.5rem; /* More space */
+    animation: fadeIn 1s ease-in-out;
+    font-weight: 600;
+}
+
+.praise-letter {
+    font-size: 7rem; /* Even larger letter */
+    font-weight: bold;
+    font-family: 'Georgia', serif; /* More elegant font */
+    color: #ff69b4;
+    margin-bottom: 1rem;
+    min-height: 120px;
+    opacity: 0;
+    transform: scale(0.5) rotate(-15deg);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.praise-letter.visible {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.praise-meaning {
+    font-size: 2.2rem; /* Larger praise text */
+    color: #8c1b4f; /* Darker, rich pink/purple */
+    margin-top: 1rem; /* More space from letter */
+    min-height: 80px;
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    /* transition-delay: 0.4s; /* Delay handled by JS logic for sequencing */
+}
+.praise-meaning.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Common animations and styles */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.screen button { background: #ff69b4; color: #fff; padding: 1rem 2rem; border-radius: 30px; border: none; font-size: 1rem; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; animation: fadeIn 1s ease-in-out 0.5s backwards; }
+.screen button:hover { background: #e754a1; transform: scale(1.05); }
+.question h2, .final-screen h2 {font-size: 2rem; color: #d63384; margin-bottom: 1.5rem; animation: fadeIn 1s ease-in-out;}
+.final-screen img {width: 250px; height: 250px; object-fit: cover; border-radius: 50%; border: 5px solid #ff69b4; margin-bottom: 1rem; animation: fadeIn 1s ease-in-out;}
+.video-screen video { width: 100vw; height: 100vh; object-fit: cover;}
+.final-screen { background: #ffe6f0; }
+
+.final-screen {
+    background: linear-gradient(135deg, #ffe6f0, #fff8f0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .final-message {
+    max-width: 700px;
+    padding: 2rem;
+    animation: fadeInUp 1.5s ease both;
+  }
+  
+  .image-frame {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 4 / 5; /* Keeps a nice portrait ratio */
+    margin: 0 auto 1.5rem auto;
+    overflow: hidden;
+    border: 8px solid white;
+    border-radius: 2rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   /* Ensures no overflow */
+    object-position: center; /* Keeps face/body centered */
+    display: block;
+    border-radius: 2rem;
+  }
+  
+  
+  .image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2rem;
+  }
+  
+  .final-title {
+    font-size: 2.5rem;
+    color: #d63384;
+    margin-bottom: 1rem;
+    font-family: 'Cursive', 'Great Vibes', sans-serif;
+  }
+  
+  .final-subtext {
+    font-size: 1.2rem;
+    color: #555;
+    font-weight: 500;
+    animation: fadeIn 3s ease 1.5s both;
+  }
+  
+  /* Optional subtle animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .final-screen .screen-content {
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+  #screen5 {
+    position: relative;
+    overflow: hidden;
+    background: #6d5858; /* Fallback background */
+  }
+  
+  #screen5::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  
+    background-image: linear-gradient(
+        rgba(255, 240, 245, 0.4), 
+        rgba(255, 240, 245, 0.4)
+      ), 
+      url('./assets/images/smiling.png'); /* Your image path */
+    background-size: cover;
+    background-position: center;
+  
+    opacity: 1; /* Keep full opacity since gradient softens it */
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  
+  /* Ensure praise content sits above the background image */
+  #screen5 .praise-screen-title,
+  #screen5 #praise-letter-display,
+  #screen5 #praise-meaning-display {
+    position: relative;
+    z-index: 1;
+  }
+    
