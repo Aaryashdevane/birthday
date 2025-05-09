@@ -17,101 +17,110 @@
     }
 
 
+    /* Remove float background on screen3 only */
+#screen3.no-bg-float .bg-animated-text {
+    display: none !important;
+}
+
+/* --- Enhanced Screen 3 Styles --- */
+.birthday-title {
+    font-size: 2.3rem;
+    color: #d63384;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1s ease-in-out;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.birthday-message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 850px;
+    padding: 0 1rem;
+}
+
+.photo-frame-large img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 8px solid #ff69b4;
+    border-radius: 25px;
+    box-shadow: 0 5px 30px rgba(255, 182, 193, 0.75);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.love-message {
+    color: #c83379;
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+.love-message p {
+    margin-bottom: 0.9em;
+    opacity: 0;
+    animation: fadeInMessage 1.2s ease-in-out forwards;
+}
+
+.love-message p:nth-child(1) { animation-delay: 0.5s; }
+.love-message p:nth-child(2) { animation-delay: 1.2s; }
+.love-message p:nth-child(3) { animation-delay: 1.9s; }
+.love-message p:nth-child(4) { animation-delay: 2.6s; }
+
+@keyframes fadeInMessage {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
     .birthday-title {
-        font-size: 2rem;
-        color: #d63384;
-        margin-bottom: 1.5rem;
-        animation: fadeIn 1s ease-in-out;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
     }
-    
+
     .birthday-message-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 1.5rem;
-        margin-top: 1rem;
-        width: 100%;
-        max-width: 850px;
-        padding: 0 1rem;
+        gap: 1rem;
     }
-    
+
     .photo-frame-large img {
-        width: 250px;
-        height: 250px;
-        object-fit: cover;
-        border: 8px solid #ff69b4;
-        border-radius: 25px;
-        box-shadow: 0 5px 30px rgba(255, 182, 193, 0.75);
-        animation: fadeIn 1.5s ease-in-out;
+        width: 200px;
+        height: 200px;
     }
-    
+
     .love-message {
-        color: #c83379;
-        font-size: 1rem;
-        line-height: 1.6;
-        text-align: center;
-        padding: 10px;
-        width: 100%;
+        font-size: 0.95rem;
+        padding: 5px;
+        line-height: 1.5;
     }
-    
-    .love-message p {
-        margin-bottom: 0.9em;
-        opacity: 0;
-        animation: fadeInMessage 1.2s ease-in-out forwards;
+}
+
+@media (min-width: 768px) {
+    .birthday-message-content {
+        flex-direction: row;
+        gap: 2.5rem;
+        align-items: center;
     }
-    
-    .love-message p:nth-child(1) { animation-delay: 0.5s; }
-    .love-message p:nth-child(2) { animation-delay: 1.2s; }
-    .love-message p:nth-child(3) { animation-delay: 1.9s; }
-    .love-message p:nth-child(4) { animation-delay: 2.6s; }
-    
-    @keyframes fadeInMessage {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+
+    .photo-frame-large img {
+        width: 320px;
+        height: 320px;
     }
-    
-    @media (max-width: 768px) {
-        .birthday-message-content {
-            gap: 1rem;
-        }
-    
-        .photo-frame-large img {
-            width: 200px;
-            height: 200px;
-        }
-    
-        .love-message {
-            font-size: 0.95rem;
-            padding: 5px;
-            line-height: 1.5;
-        }
-    
-        .birthday-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
+
+    .love-message {
+        text-align: left;
+        flex-basis: 55%;
+        padding-left: 20px;
+        font-size: 1.15rem;
     }
-    
-    @media (min-width: 768px) {
-        .birthday-message-content {
-            flex-direction: row;
-            gap: 2.5rem;
-            align-items: center;
-        }
-    
-        .photo-frame-large img {
-            width: 320px;
-            height: 320px;
-        }
-    
-        .love-message {
-            text-align: left;
-            flex-basis: 55%;
-            padding-left: 20px;
-            font-size: 1.15rem;
-        }
-    }
+}
+
 
 
     /* Screen 4 (Message Typing Screen) Styles */
@@ -305,4 +314,12 @@
         position: relative;
         z-index: 1;
     }
-        
+
+    #screen3.no-hearts .floating-heart,
+    #screen3.no-hearts .bg-animated-text,
+    #screen3.no-hearts canvas,
+    #screen3.no-hearts .heart-container {
+      display: none !important;
+      opacity: 0 !important;
+      pointer-events: none;
+    }

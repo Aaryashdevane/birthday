@@ -121,7 +121,7 @@ function addSubtleBackgroundEffects(screenElement) {
     for (let i = 0; i < numHearts; i++) {
         const heart = document.createElement('span');
         heart.classList.add('subtle-heart-effect');
-        heart.innerHTML = '💖';
+        heart.innerHTML = '';
         heart.style.left = `${Math.random() * 95}%`;
         heart.style.top = `${10 + Math.random() * 80}%`;
         heart.style.animationDelay = `${Math.random() * 7}s`;
